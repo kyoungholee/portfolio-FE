@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { ThemeToggle } from "@/components/theme-toggle"
+import { useState, useEffect } from "react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const NAV_ITEMS = [
   { label: "About", href: "#about" },
@@ -9,19 +9,19 @@ const NAV_ITEMS = [
   { label: "Projects", href: "#projects" },
   { label: "Career", href: "#career" },
   { label: "Archiving", href: "#archiving" },
-]
+];
 
 export function Header() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <header
@@ -36,7 +36,7 @@ export function Header() {
           href="#"
           className="text-lg font-bold tracking-tight text-foreground transition-colors hover:text-primary"
         >
-          {"YH.Lee"}
+          {"Portfolio"}
         </a>
 
         {/* Desktop nav */}
@@ -104,5 +104,5 @@ export function Header() {
         </ul>
       </div>
     </header>
-  )
+  );
 }
