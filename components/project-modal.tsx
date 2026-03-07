@@ -1,47 +1,49 @@
-"use client"
+"use client";
 
-import { useEffect, useCallback } from "react"
-import Image from "next/image"
+import { useEffect, useCallback } from "react";
+import Image from "next/image";
 
 export interface ProjectDetail {
-  title: string
-  company: string
-  period: string
-  description: string
-  fullDescription: string
-  skills: string[]
-  features: string[]
-  developments: string[]
-  image: string
-  detailImages: string[]
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+  fullDescription: string;
+  skills: string[];
+  features: string[];
+  developments: string[];
+  problemSolving?: string[];
+  deployment?: string[];
+  image: string;
+  detailImages: string[];
 }
 
 export function ProjectModal({
   project,
   onClose,
 }: {
-  project: ProjectDetail | null
-  onClose: () => void
+  project: ProjectDetail | null;
+  onClose: () => void;
 }) {
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose()
+      if (e.key === "Escape") onClose();
     },
     [onClose]
-  )
+  );
 
   useEffect(() => {
     if (project) {
-      document.body.style.overflow = "hidden"
-      document.addEventListener("keydown", handleKeyDown)
+      document.body.style.overflow = "hidden";
+      document.addEventListener("keydown", handleKeyDown);
     }
     return () => {
-      document.body.style.overflow = ""
-      document.removeEventListener("keydown", handleKeyDown)
-    }
-  }, [project, handleKeyDown])
+      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [project, handleKeyDown]);
 
-  if (!project) return null
+  if (!project) return null;
 
   return (
     <div
@@ -138,10 +140,10 @@ export function ProjectModal({
             </ul>
           </div>
 
-          {/* What I developed */}
-          <div className="mb-8">
+          {/* What I developed (성과 기반 정리) */}
+          <div className="mb-6">
             <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">
-              {"\uB2F4\uB2F9 \uAC1C\uBC1C \uB0B4\uC6A9"}
+              담당 개발 내용
             </h3>
             <ul className="flex flex-col gap-2">
               {project.developments.map((dev) => (
@@ -169,6 +171,46 @@ export function ProjectModal({
             </ul>
           </div>
 
+          {/* 프로젝트 문제 해결 사항 */}
+          {project.problemSolving && project.problemSolving.length > 0 && (
+            <div className="mb-6">
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">
+                프로젝트 문제 해결 사항
+              </h3>
+              <ul className="flex flex-col gap-2">
+                {project.problemSolving.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-sm text-muted-foreground"
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* 배포/운영 */}
+          {project.deployment && project.deployment.length > 0 && (
+            <div className="mb-8">
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-primary">
+                배포/운영
+              </h3>
+              <ul className="flex flex-col gap-2">
+                {project.deployment.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-2.5 text-sm text-muted-foreground"
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {/* Project Images */}
           <div>
             <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-primary">
@@ -193,5 +235,5 @@ export function ProjectModal({
         </div>
       </div>
     </div>
-  )
+  );
 }

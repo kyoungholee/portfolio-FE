@@ -7,47 +7,62 @@ import { ProjectModal, type ProjectDetail } from "@/components/project-modal";
 
 const PROJECTS: ProjectDetail[] = [
   {
-    title: "E-Commerce Platform",
-    company: "(주) 커머스테크",
-    period: "2024.03 - 2024.09 (7개월)",
+    title: "건설 현장 ERP 시스템",
+    company: "두손인터내셔널",
+    period: "2025.06 - 2026.03 (9개월)",
     description:
-      "대규모 이커머스 플랫폼의 프론트엔드를 담당하여 상품 결제 플로우 등 주요 기능을 개발했습니다.",
+      "건설 현장의 자재·유류·노무 데이터를 통합 관리하는 ERP 시스템의 프론트엔드 설계 및 개발을 담당했습니다.",
     fullDescription:
-      "MAU 50만 이상의 이커머스 플랫폼 리뉴얼 프로젝트에서 프론트엔드 개발을 담당했습니다. 기존 레거시 코드(jQuery 기반)를 Next.js 14 App Router로 전환하며 SSR/ISR을 활용한 SEO 최적화를 진행했습니다. Zustand를 활용한 글로벌 상태 관리와 TanStack Query를 통한 서버 상태 관리로 데이터 흐름을 개선했으며, 상품 검색/필터링 UX를 개선하여 사용자 전환율을 12% 향상시켰습니다.",
+      "기존 건설 현장에서는 자재 사용량, 유류 소모, 출역 정보 등을 종이 문서나 엑셀로 관리하고 있어 데이터 누락과 수기 입력 오류가 자주 발생했습니다. 또한 본사 보고 시 필요한 데이터를 다시 정리해야 해 확인과 집계에 많은 시간이 소요되는 문제가 있었습니다. 이러한 문제를 해결하기 위해 ERP 시스템을 구축하여 자재·노무·외주 데이터를 실시간으로 조회하고 집계할 수 있는 UI/UX를 설계했습니다. React Query 기반 서버 상태 관리와 캐싱 전략을 적용하여 필요한 시점에만 API를 호출하도록 구조를 설계했고, Recharts 기반 데이터 시각화를 통해 현장 데이터를 직관적으로 확인할 수 있도록 개선했습니다. 그 결과 수기 입력과 데이터 검증에 소요되던 시간을 크게 줄이고, 오류와 누락을 최소화하여 현장과 본사 모두에서 효율적으로 데이터를 관리할 수 있는 환경을 구축했습니다.",
     skills: [
-      "Next.js 14",
+      "Next.js",
       "TypeScript",
-      "Tailwind CSS",
+      "React Query",
       "Zustand",
-      "TanStack Query",
-      "Storybook",
+      "Recharts",
+      "Tailwind CSS",
+      "GitHub Actions",
     ],
     features: [
-      "상품 검색 및 다중 필터링 (카테고리, 가격대, 브랜드)",
-      "장바구니 및 결제 시스템 (PG사 연동)",
-      "SSR/ISR 기반 SEO 최적화",
-      "반응형 디자인 (모바일 퍼스트)",
-      "실시간 재고 현황 표시",
+      "자재·유류·노무·외주 데이터 통합 관리 ERP UI",
+      "Recharts 기반 현장 데이터 시각화 대시보드",
+      "현장 및 사용자 권한 기반 데이터 접근 제어",
+      "출역 및 장비 데이터 실시간 조회 및 집계 기능",
+      "현장 운영 환경을 고려한 반응형 UI 및 사용성 개선",
     ],
     developments: [
-      "상품 목록 페이지 무한 스크롤 및 필터링 시스템 구현",
-      "장바구니 → 주문 → 결제 플로우 전체 프론트엔드 개발",
-      "Zustand를 활용한 장바구니 상태 관리 및 로컬 스토리지 동기화",
-      "Next.js ISR로 상품 상세 페이지 빌드 타임 렌더링 구현",
-      "Storybook 기반 컴포넌트 문서화 및 디자인 시스템 구축",
-      "Lighthouse 성능 점수 95+ 달성 (이미지 최적화, 번들 분석)",
+      "종이 문서, 엑셀 기반 검증 프로세스를 시스템화하여 비용·수량 검증 소요 시간을 90% 이상 단축",
+      "수기 집계로 발생하던 오류 및 누락을 개선하여 월 평균 오류 건수를 20건 → 0건으로 아예 발생하지 않게 구현",
+      "출역·장비·유류 데이터를 자동화 처리하여 수작업 입력 비율 70% 이상 감소",
+      "Skeleton UI 및 SSR 적용으로 초기 로딩 시 FCP 크게 개선하여 사용자 이탈 및 불확실성 감소",
+      "React Query 캐싱 및 요청 구조 최적화를 통해 중복 API 호출을 감소",
+      "레이아웃 안정성 개선을 통해 CLS 0.02 이하 달성, 화면 흔들림 문제 해결",
+      "GitHub Actions 기반 CI/CD 파이프라인 구축으로 배포 소요 시간을 3분 20초 → 2분 이내로 단축",
+      "UI/UX 리뉴얼을 통해 정보 가시성, 접근성, 작업 예측 가능성을 개선하여 사용자 중심의 업무 환경 구축",
     ],
-    image: "/images/project-1.jpg",
+    problemSolving: [
+      "대규모 노무명세서 데이터를 렌더링하는 과정에서 31일치 공수 데이터와 공제액 계산 로직으로 인해 발생하던 5초 이상 로딩 문제를 약 2초 수준으로 개선(약 60%)",
+      "중첩된 useEffect 기반 상태 업데이트를 제거하고, useMemo 기반 파생 상태 구조로 재설계하여 불필요한 리렌더링 제거",
+      "React Query의 병렬 쿼리 및 캐싱 전략을 적용하여 직영·용역·외주 데이터 조회 시 발생하던 네트워크 병목을 해소하고 UI 반응성 개선",
+    ],
+    deployment: [
+      "AWS EC2 환경에서 Next.js Standalone Build 기반 프론트엔드 배포 구조 설계 및 구축",
+      "GitHub Actions를 활용해 빌드 → 압축 → EC2 전송 → 무중단 배포까지 자동화된 CI/CD 파이프라인 구현",
+      "PM2 기반 Node.js 프로세스 관리 및 무중단 재시작 전략 적용으로 배포 및 장애 발생 시 서비스 안정성 확보",
+      "환경 변수 기반 설정 분리를 통해 개발/운영 환경별 API를 독립적으로 관리하는 배포 구조 구현",
+      "배포 자동화를 통해 수동 배포 대비 작업 시간 단축 및 휴먼 에러 최소화, 운영 효율성 및 배포 신뢰도 개선",
+    ],
+    image: "/images/project-erp.jpg",
     detailImages: [
-      "/images/project-1-detail-1.jpg",
-      "/images/project-1-detail-2.jpg",
-      "/images/project-1-detail-3.jpg",
+      "/images/project-erp-detail-1.jpg",
+      "/images/project-erp-detail-2.jpg",
+      "/images/project-erp-detail-3.jpg",
     ],
   },
   {
-    title: "Real-time Chat App",
-    company: "(주) 소셜커넥트",
-    period: "2023.08 - 2024.02 (7개월)",
+    title: "건설 현장 CCTV 관제 시스템",
+    company: "두손인터내셔널",
+    period: "2025.06 - 2026.03 (9개월)",
     description:
       "WebSocket 기반 실시간 채팅 애플리케이션을 개발했습니다. 1:1 채팅, 그룹 채팅, 이미지 전송 등의 기능을 구현했습니다.",
     fullDescription:
@@ -163,7 +178,7 @@ const PROJECTS: ProjectDetail[] = [
 export function ProjectsSection() {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const [selectedProject, setSelectedProject] = useState<ProjectDetail | null>(
-    null,
+    null
   );
 
   return (
