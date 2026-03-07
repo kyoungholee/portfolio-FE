@@ -81,7 +81,7 @@ export function AboutSection() {
                   <span className="w-20 shrink-0 text-muted-foreground">
                     Email
                   </span>
-                  <span className="text-foreground">leekyoungho@email.com</span>
+                  <span className="text-foreground">dlrudgh1205@gmail.com</span>
                 </li>
               </ul>
             </div>
